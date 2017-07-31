@@ -35,11 +35,11 @@ describe('Basic Auth', () => {
     it('should create a user', (done) => {
 
         request({
-            uri: 'http://localhost:3000/v1/users/create',
+            uri: 'http://localhost:3000/api/v1.0/users/create',
             body: {
                 username,
-                password,
                 email,
+                password: "1111",
             },
             json: true,
             resolveWithFullResponse: true,
@@ -57,10 +57,10 @@ describe('Basic Auth', () => {
     it('should send a token when posting a user', (done) => {
 
         request({
-            uri: 'http://localhost:3000/v1/auth/local',
+            uri: 'http://localhost:3000/api/v1.0/auth/local',
             body: {
                 username: username,
-                password: password
+                password: "1111"
             },
             json: true,
             resolveWithFullResponse: true,
@@ -82,7 +82,7 @@ describe('Basic Auth', () => {
     it('should send a 401 when posting bad creds', (done) => {
 
         request({
-            uri: 'http://localhost:3000/v1/auth/local',
+            uri: 'http://localhost:3000/api/v1.0/auth/local',
             body: {
                 username: 'test',
                 password: uuid.v4()

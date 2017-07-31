@@ -55,7 +55,7 @@ userController.resetPassword = function(req,res,next)
 			return res.status(400).send("User not found");
 		user.setPassword(req.body.password).then( () => {
 			res.status(201).send();
-		}
+		})
 	})
 }
 

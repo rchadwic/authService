@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
             type: Sequelize.ENUM('admin', 'participant', 'clinician', 'import'),
             allowNull: false,
         },
-        resetToken: Sequelize.String
+        resetToken: Sequelize.STRING
     });
     userModel.prototype.setPassword = function setPassword(newPassword)
     {
