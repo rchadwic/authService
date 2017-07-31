@@ -28,6 +28,7 @@ module.exports = (sequelize) => {
     }
     userModel.prototype.testPassword = function testPassword(testPassword)
     {
+        console.log(`testing password is ${ testPassword } `)
     	return crypto.pbkdf2Sync(testPassword, Buffer.from(this.salt), 100000, 128, 'sha256').toString('hex') === this.password;
     }
     return userModel;

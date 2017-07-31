@@ -1,6 +1,7 @@
 const userController = {};
 const db = require("../config/db.js")
 const uuid = require('uuid');
+const jwt = require('jsonwebtoken');
 
 userController.create = function(req,res,next)
 {
@@ -57,6 +58,14 @@ userController.resetPassword = function(req,res,next)
 			res.status(201).send();
 		})
 	})
+}
+
+
+userController.me = function(req,res,next)
+{
+	console.log('in user controller me')
+	let userToken = jwt.verify(req.cookies['rr-jwt-token'],process.env.JWT_SECRET);
+	res.send(userToken.sub);
 }
 
 module.exports = userController;

@@ -16,7 +16,7 @@ describe('Basic Auth', () => {
 
     let username = uuid.v4();
     let password = uuid.v4();
-    let email = uuid.v4() + '@google.com';
+    let email = username + '@google.com';
 
 /*    before((done) => {
 
@@ -72,7 +72,7 @@ describe('Basic Auth', () => {
         	let userToken = jwt.verify(userCookie['rr-jwt-token'],process.env.JWT_SECRET);
         	console.log(userToken);
         	userToken.sub.username.should.equal(username);
-            res.statusCode.should.equal(201);
+            res.statusCode.should.equal(200);
             done();
 
         })
