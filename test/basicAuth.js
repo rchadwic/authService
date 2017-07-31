@@ -14,8 +14,8 @@ before(() => {
 })
 describe('Basic Auth', () => {
 
-    let username = uuid.v4();
-    let password = uuid.v4();
+    let username = 'rob';
+    let password = '1111';
     let email = username + '@google.com';
 
 /*    before((done) => {
@@ -39,7 +39,7 @@ describe('Basic Auth', () => {
             body: {
                 username,
                 email,
-                password: "1111",
+                password
             },
             json: true,
             resolveWithFullResponse: true,
@@ -59,8 +59,8 @@ describe('Basic Auth', () => {
         request({
             uri: 'http://localhost:3000/api/v1.0/auth/local',
             body: {
-                username: username,
-                password: "1111"
+               username,
+               password,
             },
             json: true,
             resolveWithFullResponse: true,
